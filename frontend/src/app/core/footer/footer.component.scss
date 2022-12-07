@@ -1,0 +1,47 @@
+footer {
+    position: relative;
+    background: white;
+    padding: 0;
+    border-top: 2px solid red;
+    margin-top: -100px;
+}
+
+p {
+    color: red;
+    margin: 35px 60px
+}
+
+a {
+    color: black;
+    margin: 25px 60px
+
+}
+
+a:hover {
+    background: blue;
+    color: white;
+    cursor: pointer;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0
+}
+
+ul a {
+    padding: 1rem;
+    display: inline-block
+}
+
+a span {
+    background: red;
+    color: white;
+    padding: 0.1rem 0.45rem;
+    border-radius: 100rem;
+    font-size: 0.9rem;
+}
