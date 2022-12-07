@@ -13,7 +13,7 @@ controller.post('/register', async (req, res) => {
 
 controller.post('/login', async (req, res) => {
     try {
-        const token = await register(req.body.email, req.body.password)
+        const token = await login(req.body.email, req.body.password)
         res.cookie('token', token)
     } catch (err) {
         //todo
