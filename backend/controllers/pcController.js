@@ -4,7 +4,7 @@ const pcController = require('express').Router()
 
 pcController.get('/', async (req, res) => {
     const pcs = await getAll()
-    //todo 
+    res.status(200).json(pcs)
 })
 
 module.exports = {

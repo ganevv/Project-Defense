@@ -45,12 +45,12 @@ function createSession({ _id, email,  username }) {
         username
     }
 
-    const token = jwt.sign(payload, JST_SECRET)
+    const token = jwtoken.sign(payload, JST_SECRET)
     return token
 }
 
 function verifyToken(token) {
-    return jwt.verify(token, JST_SECRET)
+    return jwtoken.verify(token, JST_SECRET)
 }
 
 module.exports = {
