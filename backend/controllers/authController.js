@@ -1,8 +1,8 @@
 const { register, login } = require('../service/user')
 
-const controller = require('express').Router()
+const authController = require('express').Router()
 
-controller.post('/register', async (req, res) => {
+authController.post('/register', async (req, res) => {
     try {
         const token = await register(req.body.email, req.body.username, req.body.password)
         res.cookie('token', token)
@@ -11,7 +11,7 @@ controller.post('/register', async (req, res) => {
     }
 })
 
-controller.post('/login', async (req, res) => {
+authController.post('/login', async (req, res) => {
     try {
         const token = await login(req.body.email, req.body.password)
         res.cookie('token', token)
@@ -20,8 +20,8 @@ controller.post('/login', async (req, res) => {
     }
 })
 
-controller.get('/logout', (req, res) => {
+authController.get('/logout', (req, res) => {
     //todo
 })
 
-module.exports = controller
+module.exports = authController
