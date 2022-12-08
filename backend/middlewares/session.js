@@ -1,4 +1,4 @@
-const { verifyToken } = require('../service/user')
+const { verifyToken } = require('../services/user')
 
 module.exports = () => (req, res, next) => {
     const token = req.headers['x-authorization']

@@ -1,10 +1,10 @@
-const { getAll } = require('../service/pc')
+const { getAll } = require('../services/pc')
 
 const pcController = require('express').Router()
 
 pcController.get('/', async (req, res) => {
-    const pcs = await getAll()
-    res.status(200).json(pcs)
+    res.json(await getAll())
+    // res.status(200).json(await getAll())
 })
 
 module.exports = {

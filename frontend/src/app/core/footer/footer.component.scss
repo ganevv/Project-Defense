@@ -7,14 +7,17 @@ footer {
 }
 
 p {
-    color: red;
-    margin: 35px 60px
+    color: black;
+    margin: 35px 60px;
+    font-size: 1rem;
 }
 
 a {
     color: black;
-    margin: 25px 60px
-
+    margin: 25px 60px;
+    padding: 1rem;
+    border-radius: 300rem;
+    font-size: 1rem;
 }
 
 a:hover {
@@ -22,6 +25,7 @@ a:hover {
     color: white;
     cursor: pointer;
 }
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -36,12 +40,4 @@ ul {
 ul a {
     padding: 1rem;
     display: inline-block
-}
-
-a span {
-    background: red;
-    color: white;
-    padding: 0.1rem 0.45rem;
-    border-radius: 100rem;
-    font-size: 0.9rem;
 }
