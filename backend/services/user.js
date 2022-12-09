@@ -20,6 +20,12 @@ async function register(email, username, password) {
 
     const token = createSession(user)
     return token
+
+    // return {
+    //     _id: user._id,
+    //     email: user.emailm
+    //     accessToken: createSession(user)
+    // }
 }
 
 async function login(email, password) {
@@ -38,7 +44,7 @@ async function login(email, password) {
     return token
 }
 
-function createSession({ _id, email,  username }) {
+function createSession({ _id, email, username }) {
     const payload = {
         _id,
         email,

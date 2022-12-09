@@ -13,7 +13,7 @@ start()
 async function start() {
     try {
         const db = await mongoose.connect(connectionString)
-        console.log('DB connected')
+        console.log('Database connected')
     } catch (error) {
         console.log('Failed to connect to database')
         return process.exit(1)
