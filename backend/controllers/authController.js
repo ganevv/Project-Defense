@@ -17,12 +17,14 @@ authController.post('/login', async (req, res) => {
         res.status(201).json(token)
         res.end()
     } catch (err) {
-        res.status(400).json({ err })
+        res.status(401).json({ err })
     }
 })
 
 authController.get('/logout', (req, res) => {
-    //todo
+    const token = req.header['x-authorization']
+    console.log(token)
+    res.status(204).end()
 })
 
 module.exports = {

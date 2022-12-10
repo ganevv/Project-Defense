@@ -4,6 +4,8 @@ const User = require('../models/User')
 
 const JST_SECRET = 'ao12,kai1ntrmmqi12g'
 
+const tokenBlacklist = new Set()
+
 async function register(email, username, password) {
     const existing = await User.findOne({ email }).collation({ locale: 'en', strength: 2 })
     if (existing) {
@@ -44,6 +46,10 @@ async function login(email, password) {
     return token
 }
 
+async function logout(token) {
+    tokenBlacklist.add(token)
+}
+
 function createSession({ _id, email, username }) {
     const payload = {
         _id,
@@ -56,12 +62,14 @@ function createSession({ _id, email, username }) {
 }
 
 function verifyToken(token) {
+    //todo scan for token in blacklist
     return jwtoken.verify(token, JST_SECRET)
 }
 
 module.exports = {
     register,
     login,
+    logout,
     createSession,
     verifyToken
 }
