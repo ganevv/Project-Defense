@@ -1,4 +1,4 @@
-const { register, login } = require('../services/user')
+const { register, login, logout } = require('../services/user')
 
 const authController = require('express').Router()
 
@@ -21,8 +21,9 @@ authController.post('/login', async (req, res) => {
     }
 })
 
-authController.get('/logout', (req, res) => {
+authController.get('/logout', async (req, res) => {
     const token = req.header['x-authorization']
+    await logout(token)
     console.log(token)
     res.status(204).end()
 })
