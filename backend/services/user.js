@@ -62,7 +62,9 @@ function createSession({ _id, email, username }) {
 }
 
 function verifyToken(token) {
-    //todo scan for token in blacklist
+    if(tokenBlacklist.has(token)){
+        throw new Error('Token is blacklisted!')
+    }
     return jwtoken.verify(token, JST_SECRET)
 }
 
