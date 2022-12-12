@@ -4,24 +4,28 @@
         <nav>
             <ul>
                 <li>
-                    <a routerLink="/catalog">Our Offers</a>
+                    <a routerLink="/pc/catalog">Our Offers</a>
                 </li>
-                <li>
-                    <a routerLink="/create">Create your PC</a>
-                </li>
-                <li class="menu-container">
-                    <a routerLink="/dashboard">Username</a>
-                    <div class="menu">
-                        <a routerLink="/profile">Profile</a>
-                        <a routerLink="/logout">Logout</a>
-                    </div>
-                </li>
-                <li>
-                    <a routerLink="/login">Login</a>
-                </li>
-                <li>
-                    <a routerLink="/register">Register</a>
-                </li>
+                <ng-container *ngIf="isLoggedId">
+                    <li>
+                        <a routerLink="/pc/create">Create your PC</a>
+                    </li>
+                    <li class="menu-container">
+                        <a routerLink="/dashboard">Username</a>
+                        <div class="menu">
+                            <a routerLink="/auth/profile">Profile</a>
+                            <a (click)="logout()">Logout</a>
+                        </div>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="!isLoggedId">
+                    <li>
+                        <a routerLink="/auth/login">Login</a>
+                    </li>
+                    <li>
+                        <a routerLink="/auth/register">Register</a>
+                    </li>
+                </ng-container>
             </ul>
         </nav>
     </div>

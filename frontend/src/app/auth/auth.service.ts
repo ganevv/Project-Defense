@@ -41,4 +41,8 @@ export class AuthService {
     return localStorage.removeItem('token')
   }
 
+  get isLoggedId(): boolean {
+    return this.user !== null
+  }
+
 }
