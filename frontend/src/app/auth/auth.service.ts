@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs'
 import { environment } from 'src/environments/environment';
+import { getSession, logoutSession } from '../shared/api';
 import { IUser } from '../shared/interfaces/user';
 
 const apiURL = environment.apiURL
@@ -12,41 +13,43 @@ const apiURL = environment.apiURL
 })
 export class AuthService {
 
-  user: IUser | null = null
-  isLoggedIn: boolean = false
+  user!: IUser | null
+  isLogged: boolean = false
   errorString: string | null = null
 
   constructor(private http: HttpClient, private router: Router) { }
 
   getUser() {
-    return this.http.get<IUser>(`${apiURL}/auth/user`).pipe(tap((user) => {
-      this.user = user
+    return this.http.get<IUser>(`${apiURL}/auth/user`).pipe(tap((userData) => {
+      console.log(userData + 'getUser');
+
     }))
   }
 
   register(userData: {}) {
-    return this.http.post<IUser>(`${apiURL}/auth/register`, userData).pipe(tap((user) => {
-      this.user = user
-      localStorage.setItem('token', this.user.accessToken)
+    return this.http.post<IUser>(`${apiURL}/auth/register`, userData).pipe(tap((response) => {
+      if (!response._id) { return }
     }))
   }
 
   login(userData: {}) {
-    return this.http.post<IUser>(`${apiURL}/auth/login`, userData).pipe(tap((userData) => {
-      this.user = userData
-      localStorage.setItem('token', this.user.accessToken)
+    return this.http.post<IUser>(`${apiURL}/auth/login`, userData).pipe(tap((response) => {
+      if (!response._id) { return }
+
     }))
   }
 
   logout() {
-    this.user = null
-    return localStorage.removeItem('token')
+    if (!getSession()) { return }
+    logoutSession()
+    this.setLogin(null, false)
+    this.router.navigate(['/'])
   }
 
   setLogin(user: IUser | null, status: boolean) {
     return (
       this.user = user,
-      this.isLoggedIn = status
+      this.isLogged = status
     )
   }
 

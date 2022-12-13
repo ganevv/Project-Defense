@@ -15,7 +15,7 @@ export class RegisterComponent {
   // validationPattern = '^[a-zA-Z0-9]{3,}@[a-z]+\.[a-z]+$'
   // passwordControl = new FormControl('', [Validators.required, Validators.minLength(5)])
 
-  // registerGroup: FormGroup = this.formBuilder.group({
+  // registerFormGroup: FormGroup = this.formBuilder.group({
   //   email: new FormControl('', [Validators.required, Validators.pattern(this.validationPattern)]),
   //   username: new FormControl('', [Validators.required, Validators.minLength(5)]),
   //   password: this.passwordControl,
@@ -29,7 +29,7 @@ export class RegisterComponent {
 
   // register(): void {
   //   //todo maybe add repass!
-  //   const { email, username, password } = this.registerGroup.value
+  //   const { email, username, password } = this.registerFormGroup.value
   //   const body = { email, username, password }
   //   this.authService.register(body).subscribe({
   //     next: (userData) => {

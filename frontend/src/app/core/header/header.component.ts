@@ -10,21 +10,8 @@ import { IUser } from 'src/app/shared/interfaces/user';
 })
 export class HeaderComponent {
 
-  user: IUser | null = null
+  constructor(public authService: AuthService, private router: Router) { }
 
-  constructor(private authService: AuthService, private router: Router) { }
 
-  get isLoggedIn() {
-    return this.authService.isLoggedIn
-  }
-
-  logout() {
-    this.authService.logout()
-    this.router.navigate(['/'])
-  }
-
-  get userData() {
-    return this.authService.user
-  }
-
+  //todo must do loggedin ngif in html
 }

@@ -6,7 +6,7 @@
                 <li>
                     <a routerLink="/pc/catalog">Our Offers</a>
                 </li>
-                <ng-container *ngIf="isLoggedIn">
+                <ng-container *ngIf="authService.isLogged">
                     <li>
                         <a routerLink="/pc/create">Create your PC</a>
                     </li>
@@ -14,11 +14,12 @@
                         <a routerLink="/dashboard">Username</a>
                         <div class="menu">
                             <a routerLink="/auth/profile">Profile</a>
-                            <a (click)="logout()">Logout</a>
+                            <a routerLink="/auth/logout">Logout</a>
                         </div>
                     </li>
                 </ng-container>
-                <ng-container *ngIf="!isLoggedIn">
+                <ng-container *ngIf="authService.isLogged">
+                    
                     <li>
                         <a routerLink="/auth/login">Login</a>
                     </li>
