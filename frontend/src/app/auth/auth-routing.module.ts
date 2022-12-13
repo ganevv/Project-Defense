@@ -12,17 +12,14 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: LoginComponent,
-                //todo must confirm user
             },
             {
                 path: 'register',
                 component: RegisterComponent,
-                //todo must confirm user
             },
             {
                 path: 'logout',
                 component: LogoutComponent,
-                //todo must confirm user
             },
         ]
     }

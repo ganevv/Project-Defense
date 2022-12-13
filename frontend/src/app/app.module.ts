@@ -15,12 +15,12 @@ import { PCsModule } from './pcs/pcs.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    PCsModule,
+    AuthModule,
     CoreModule,
     HttpClientModule,
-    AuthModule,
-    PCsModule,
     RouterModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

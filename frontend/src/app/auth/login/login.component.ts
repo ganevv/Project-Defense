@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { startSession } from 'src/app/shared/api';
 import { AuthService } from '../auth.service'
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent {
 
   validationPattern = '^[a-zA-Z0-9]{3,}@[a-z]+\.[a-z]+$'
 
-  form = this.formBuilder.group({
+  loginFormGroup: FormGroup = this.formBuilder.group({
     'email': new FormControl('', [Validators.required, Validators.pattern(this.validationPattern)]),
     'password': new FormControl(null, [Validators.required, Validators.minLength(5)])
   })
@@ -22,10 +23,11 @@ export class LoginComponent {
   errors: string | undefined = undefined
 
   login(): void {
-    if (this.form.invalid) { return }
-    const { email, password } = this.form.value
+    const { email, password } = this.loginFormGroup.value
     this.authService.login({ email, password }).subscribe({
-      next: () => {
+      next: (userData) => {
+        startSession(userData)
+        this.authService.setLogin(userData, true)
         this.router.navigate(['/'])
       },
       error: (err) => {

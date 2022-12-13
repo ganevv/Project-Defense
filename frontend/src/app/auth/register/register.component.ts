@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
+import { startSession } from 'src/app/shared/api';
+import { passwordMissMatch } from 'src/app/shared/validators/repassValidator';
 import { AuthService } from '../auth.service';
-import { FormBuilder, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -10,31 +12,34 @@ import { FormBuilder, Validators } from '@angular/forms'
 })
 export class RegisterComponent {
 
-  validationPattern = '^[a-zA-Z0-9]{3,}@[a-z]+\.[a-z]+$'
+  // validationPattern = '^[a-zA-Z0-9]{3,}@[a-z]+\.[a-z]+$'
+  // passwordControl = new FormControl('', [Validators.required, Validators.minLength(5)])
 
-  form = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.pattern(this.validationPattern)]],
-    username: ['', [Validators.required, Validators.minLength(5)]],
-    password: ['', [Validators.required, Validators.minLength(5)]],
-    rePassword: []
-    //todo pass and repass must be same
-  })
+  // registerGroup: FormGroup = this.formBuilder.group({
+  //   email: new FormControl('', [Validators.required, Validators.pattern(this.validationPattern)]),
+  //   username: new FormControl('', [Validators.required, Validators.minLength(5)]),
+  //   password: this.passwordControl,
+  //   rePassword: new FormControl('', [passwordMissMatch(this.passwordControl)])
+  //   //todo names change
+  // })
 
-  constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
+  // constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
 
-  errors: string | undefined = undefined
+  // errors: string | undefined = undefined
 
-  register(): void {
-    if (this.form.invalid) { return }
-    const { email, username, password, rePassword } = this.form.value
-    this.authService.register({ email, username, password, rePassword })
-      .subscribe({
-        next: () => {
-          this.router.navigate(['/'])
-        },
-        error: (err) => {
-          this.errors = err.error
-        }
-      })
-  }
+  // register(): void {
+  //   //todo maybe add repass!
+  //   const { email, username, password } = this.registerGroup.value
+  //   const body = { email, username, password }
+  //   this.authService.register(body).subscribe({
+  //     next: (userData) => {
+  //       startSession(userData)
+  //       this.authService.setLogin(userData, true)
+  //       this.router.navigate(['/'])
+  //     },
+  //     error: (err) => {
+  //       this.errors = err.error
+  //     }
+  //   })
+  // }
 }

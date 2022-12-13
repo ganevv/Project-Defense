@@ -13,6 +13,8 @@ const apiURL = environment.apiURL
 export class AuthService {
 
   user: IUser | null = null
+  isLoggedIn: boolean = false
+  errorString: string | null = null
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -41,8 +43,11 @@ export class AuthService {
     return localStorage.removeItem('token')
   }
 
-  get isLoggedId(): boolean {
-    return this.user !== null
+  setLogin(user: IUser | null, status: boolean) {
+    return (
+      this.user = user,
+      this.isLoggedIn = status
+    )
   }
 
 }
