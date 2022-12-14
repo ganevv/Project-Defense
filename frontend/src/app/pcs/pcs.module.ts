@@ -15,9 +15,10 @@ import { CreateComponent } from './create/create.component';
   ],
   imports: [
     CommonModule,
-    // PcsRoutingModule,
+    PcsRoutingModule,
     HttpClientModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: []
 })
 export class PCsModule { }

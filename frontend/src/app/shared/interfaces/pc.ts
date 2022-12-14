@@ -1,6 +1,7 @@
 import { IUser } from "./user";
 
-export interface IBike {
+export interface IPc {
+    _id: string,
     cpu: string,
     motherboard: string,
     gpu: string,

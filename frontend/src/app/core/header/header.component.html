@@ -4,14 +4,14 @@
         <nav>
             <ul>
                 <li>
-                    <a routerLink="/pc/catalog">Our Offers</a>
+                    <a routerLink="/pcs/catalog">Our Offers</a>
                 </li>
                 <ng-container *ngIf="authService.isLogged">
                     <li>
-                        <a routerLink="/pc/create">Create your PC</a>
+                        <a routerLink="/pcs/create">Create your PC</a>
                     </li>
                     <li class="menu-container">
-                        <a routerLink="/dashboard">Username</a>
+                        <a routerLink="/dashboard">here must be username ==> {{authService.user?.username}} <==</a>
                         <div class="menu">
                             <a routerLink="/auth/profile">Profile</a>
                             <a routerLink="/auth/logout">Logout</a>

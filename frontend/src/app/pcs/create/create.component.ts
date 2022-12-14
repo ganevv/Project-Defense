@@ -12,7 +12,8 @@ export class CreateComponent {
 
 
   errors: string | undefined = undefined
-  URL_PATTERN = /^https?:\/\/\.+/i
+  URL_PATTERN = /^https?:\/\/.+/i
+                
 
   createGroup: FormGroup = this.formBuilder.group({
     'cpu': new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -22,7 +23,7 @@ export class CreateComponent {
     'storage': new FormControl('', [Validators.required, Validators.minLength(1)]),
     'powerSupply': new FormControl('', [Validators.required, Validators.minLength(1)]),
     'box': new FormControl('', [Validators.required, Validators.minLength(1)]),
-    'price': new FormControl('', [Validators.required, Validators.minLength(1)]),
+    'price': new FormControl('', [Validators.required, Validators.min(0.01)]),
     'img': new FormControl('', [Validators.required, Validators.pattern(this.URL_PATTERN)]),
 
     //todo must rework validators!!
@@ -36,12 +37,13 @@ export class CreateComponent {
 
     this.pcsService.createPc(pc).subscribe({
       next: (pc) => {
-      if(!pc) { return }
-      this.router.navigate(['pcs/catalog'])
-    },
-    error: (err) => {
+        if (!pc) { return }
+        this.router.navigate(['pcs/catalog'])
+      },
+      error: (err) => {
+        console.log(err.error)
         this.errors = err.error
-    }
+      }
     })
-}
+  }
 }
