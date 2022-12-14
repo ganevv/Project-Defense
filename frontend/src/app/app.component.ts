@@ -12,7 +12,8 @@ export class AppComponent {
   title = 'frontend';
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    if (getSession()) {
+    
+    if (!getSession()) {
       this.authService.setLogin(null, false)
       return
     }

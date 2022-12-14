@@ -31,13 +31,18 @@ export class RegisterComponent {
     //todo maybe add repass!
     const { email, username, password } = this.registerGroup.value
     const body = { email, username, password }
+
     this.authService.register(body).subscribe({
+
       next: (userData) => {
+        console.log(userData)
         startSession(userData)
         this.authService.setLogin(userData, true)
         this.router.navigate(['/'])
       },
       error: (err) => {
+        console.log(err);
+
         this.errors = err.error
       }
     })

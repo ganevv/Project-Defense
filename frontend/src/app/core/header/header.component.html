@@ -18,7 +18,7 @@
                         </div>
                     </li>
                 </ng-container>
-                <ng-container *ngIf="authService.isLogged">
+                <ng-container *ngIf="!authService.isLogged">
                     
                     <li>
                         <a routerLink="/auth/login">Login</a>

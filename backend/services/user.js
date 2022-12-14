@@ -19,6 +19,7 @@ async function register(email, username, password) {
         username,
         hashedPassword
     })
+    console.log(user + 'user');
 
     const token = createSession(user)
     return token

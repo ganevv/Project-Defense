@@ -1,4 +1,4 @@
-import { createComponent, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PcListComponent } from './pc-list/pc-list.component';
 import { PcsRoutingModule } from './pcs-routing.module';
