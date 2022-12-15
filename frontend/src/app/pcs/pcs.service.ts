@@ -18,17 +18,17 @@ export class PcsService {
     return this.http.get<IPc[]>(`${apiURL}/pcs`)
   }
 
-  // loadPcs() {
-  //   return this.http.get(`${apiURL}/pcs`)
-  // }
-
-  // loadPcs() {
-  //   return this.http.get(`${apiURL}/pcs`)
-  // }
-
   createPc(pc: {}) {
     return this.http.post(`${apiURL}/pcs`, pc, { headers: { 'x-authorization': getSession().accessToken } })
   }
+
+  // loadPcs() {
+  //   return this.http.get(`${apiURL}/pcs`)
+  // }
+
+  // loadPcs() {
+  //   return this.http.get(`${apiURL}/pcs`)
+  // }
 
   // loadPcs() {
   //   return this.http.get(`${apiURL}/pcs`)

@@ -11,7 +11,7 @@
         </div>
 
         <div class="pc-box">
-            <input formControlName="MOTHERBOARD" type="text">
+            <input formControlName="motherboard" type="text">
             <label>MOTHERBOARD</label>
             <ng-container *ngIf="createGroup.get('motherboard')?.touched && createGroup.get('motherboard')?.invalid">
                 <p class="error">Motherboard must be minimum one characters!</p>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="pc-box">
-            <input formControlName="GPU" type="text">
+            <input formControlName="gpu" type="text">
             <label>GPU</label>
             <ng-container *ngIf="createGroup.get('gpu')?.touched && createGroup.get('gpu')?.invalid">
                 <p class="error">GPU must be minimum one characters!</p>
@@ -28,7 +28,7 @@
 
 
         <div class="pc-box">
-            <input formControlName="RAM" type="text">
+            <input formControlName="ram" type="text">
             <label>RAM</label>
 
             <ng-container *ngIf="createGroup.get('ram')?.touched && createGroup.get('ram')?.invalid">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="pc-box">
-            <input formControlName="STORAGE" type="text">
+            <input formControlName="storage" type="text">
             <label>STORAGE</label>
             <ng-container *ngIf="createGroup.get('storage')?.touched && createGroup.get('storage')?.invalid">
                 <p class="error">Storage must be minimum one characters!</p>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="pc-box">
-            <input formControlName="POWER SUPPLY" type="text">
+            <input formControlName="powerSupply" type="text">
             <label>POWER SUPPLY</label>
             <ng-container
                 *ngIf="createGroup.get('powerSupply')?.touched && createGroup.get('powerSupply')?.invalid">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="pc-box">
-            <input formControlName="BOX" type="text">
+            <input formControlName="box" type="text">
             <label>BOX</label>
             <ng-container
                 *ngIf="createGroup.get('box')?.touched && createGroup.get('box')?.invalid">

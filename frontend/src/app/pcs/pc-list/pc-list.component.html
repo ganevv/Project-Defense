@@ -1,16 +1,5 @@
-<h1 *ngIf="!hasPcs">There is no PC's</h1>
-<div class="container">
-    <div *ngFor="let pc of pcsList" class="card" style="background: url('{{pc.img}}'); background-size:100% 100%">
-        <div class="border">
-            <a [routerLink]="['/bikes/details', pc._id]" class="details">Details</a>
-            <a [routerLink]="['/bikes/edit', pc._id]" class="edit">Edit</a>
-            <div class="icons">
-                <i class="fa fa-codepen" aria-hidden="true"></i>
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-                <i class="fa fa-dribbble" aria-hidden="true"></i>
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-            </div>
-        </div>
-    </div>
-</div>
+<h1 *ngIf="!hasPcs">We don't have any PC's right now!!</h1>
+<h1 *ngIf="hasPcs">Our best PC's:</h1>
+<!-- <div class="container">
+    //todo
+</div> -->
