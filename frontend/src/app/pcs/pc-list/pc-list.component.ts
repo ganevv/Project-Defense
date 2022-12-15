@@ -10,7 +10,7 @@ import { PcsService } from '../pcs.service';
 
 export class PcListComponent implements OnInit {
 
-  pcsList: IPc[] | null = null
+  pcsList: IPc[] | null = []
   hasPcs: boolean = false
 
   constructor(private pcsService: PcsService) { }

@@ -1,4 +1,4 @@
-const { register, login } = require('../services/user')
+const { register, login, logout } = require('../services/user')
 
 const authController = require('express').Router()
 
@@ -37,6 +37,13 @@ authController.get('/user', async (req, res) => {
     }
 })
 
+authController.get('/logout', async (req, res) => {
+    const token = req.token
+    await logout(token)
+    res.status(204).end()
+})
+
+//todo logout
 
 module.exports = {
     authController

@@ -55,4 +55,6 @@ ul a {
 .menu a {
     width: 100%;
     min-width: 8rem;
+    display: flex;
+    justify-content: space-between;
 }
