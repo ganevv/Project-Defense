@@ -27,10 +27,16 @@ export class LoginComponent {
     this.authService.login({ email, password }).subscribe({
       next: (userData) => {
         startSession(userData)
+        console.log(userData)
+        console.log(userData._id)
+        console.log(userData.accessToken)
+        console.log(userData.email)
+        console.log(userData.username)
         this.authService.setLogin(userData, true)
         this.router.navigate(['/'])
       },
       error: (err) => {
+        console.log(err.error)
         this.errors = err.error
       }
     })

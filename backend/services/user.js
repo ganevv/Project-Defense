@@ -4,8 +4,6 @@ const User = require('../models/User')
 
 const JST_SECRET = 'ao12,kai1ntrmmqi12g'
 
-const tokenBlacklist = new Set()
-
 async function register(email, username, password) {
     const existing = await User.findOne({ email }).collation({ locale: 'en', strength: 2 })
     if (existing) {
@@ -15,8 +13,8 @@ async function register(email, username, password) {
     const hashedPassword = await bcrypt.hash(password, 10)
 
     const user = await User.create({
-        email,
         username,
+        email,
         hashedPassword
     })
     console.log(user + 'user');
@@ -24,15 +22,11 @@ async function register(email, username, password) {
     const token = createSession(user)
     return token
 
-    // return {
-    //     _id: user._id,
-    //     email: user.emailm
-    //     accessToken: createSession(user)
-    // }
 }
 
 async function login(email, password) {
     const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 })
+
     if (!user) {
         throw new Error('Incorrect email or password')
     }
@@ -47,32 +41,32 @@ async function login(email, password) {
     return token
 }
 
-async function logout(token) {
-    tokenBlacklist.add(token)
-}
-
-function createSession({ _id, email, username }) {
+function createSession(user) {
     const payload = {
-        _id,
-        email,
-        username
+        _id: user._id,
+        username: user.username,
+        email: user.email,
     }
 
-    const token = jwtoken.sign(payload, JST_SECRET)
-    return token
+    return {
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+        accessToken: jwtoken.sign(payload, JST_SECRET)
+    }
 }
 
 function verifyToken(token) {
-    if(tokenBlacklist.has(token)){
-        throw new Error('Token is blacklisted!')
+    try {
+        return jwtoken.verify(token, JST_SECRET)
+    } catch (error) {
+        throw new Error('Invalid access token!')
     }
-    return jwtoken.verify(token, JST_SECRET)
 }
 
 module.exports = {
     register,
     login,
-    logout,
     createSession,
     verifyToken
 }
