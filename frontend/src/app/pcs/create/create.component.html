@@ -1,69 +1,69 @@
 <div class="create-box">
-    <h2>Add bike</h2>
+    <h2>Make your own PC!</h2>
     <form [formGroup]="createGroup" (ngSubmit)="create()">
 
-        <div class="bike-box">
-            <input formControlName="CPU" type="text">
+        <div class="pc-box">
+            <input formControlName="cpu" type="text">
             <label>CPU</label>
-            <ng-container *ngIf="createGroup.get('brand')?.touched && createGroup.get('brand')?.invalid">
-                <p class="error">Brand must be minimum one characters!</p>
+            <ng-container *ngIf="createGroup.get('cpu')?.touched && createGroup.get('cpu')?.invalid">
+                <p class="error">CPU must be minimum one characters!</p>
             </ng-container>
         </div>
 
-        <div class="bike-box">
-            <input formControlName="model" type="text">
+        <div class="pc-box">
+            <input formControlName="MOTHERBOARD" type="text">
             <label>MOTHERBOARD</label>
-            <ng-container *ngIf="createGroup.get('model')?.touched && createGroup.get('model')?.invalid">
-                <p class="error">Model must be minimum one characters!</p>
+            <ng-container *ngIf="createGroup.get('motherboard')?.touched && createGroup.get('motherboard')?.invalid">
+                <p class="error">Motherboard must be minimum one characters!</p>
             </ng-container>
         </div>
 
-        <div class="bike-box">
-            <input formControlName="year" type="text">
+        <div class="pc-box">
+            <input formControlName="GPU" type="text">
             <label>GPU</label>
-            <ng-container *ngIf="createGroup.get('year')?.touched && createGroup.get('year')?.invalid">
-                <p class="error">Bike must be between 1885 and 2022!</p>
+            <ng-container *ngIf="createGroup.get('gpu')?.touched && createGroup.get('gpu')?.invalid">
+                <p class="error">GPU must be minimum one characters!</p>
             </ng-container>
         </div>
 
 
-        <div class="bike-box">
-            <input formControlName="power" type="text">
+        <div class="pc-box">
+            <input formControlName="RAM" type="text">
             <label>RAM</label>
 
-            <ng-container *ngIf="createGroup.get('power')?.touched && createGroup.get('power')?.invalid">
-                <p class="error">Minumum power 0.5 HP!</p>
+            <ng-container *ngIf="createGroup.get('ram')?.touched && createGroup.get('ram')?.invalid">
+                <p class="error">RAM must be minimum one characters!</p>
             </ng-container>
         </div>
 
-        <div class="bike-box">
-            <input formControlName="price" type="text">
+        <div class="pc-box">
+            <input formControlName="STORAGE" type="text">
             <label>STORAGE</label>
-            <ng-container *ngIf="createGroup.get('price')?.touched && createGroup.get('price')?.invalid">
-                <p class="error">Price must be positive number(0.01)! </p>
+            <ng-container *ngIf="createGroup.get('storage')?.touched && createGroup.get('storage')?.invalid">
+                <p class="error">Storage must be minimum one characters!</p>
 
             </ng-container>
         </div>
 
-        <div class="bike-box">
-            <input formControlName="description" type="text">
+        <div class="pc-box">
+            <input formControlName="POWER SUPPLY" type="text">
             <label>POWER SUPPLY</label>
             <ng-container
-                *ngIf="createGroup.get('description')?.touched && createGroup.get('description')?.invalid">
-                <p class="error">Description must be between 10 and 100 characters!</p>
+                *ngIf="createGroup.get('powerSupply')?.touched && createGroup.get('powerSupply')?.invalid">
+                <p class="error">Power Supply must be minimum one characters!</p>
             </ng-container>
         </div>
 
-        <div class="bike-box">
-            <input formControlName="description" type="text">
+        <div class="pc-box">
+            <input formControlName="BOX" type="text">
             <label>BOX</label>
             <ng-container
-                *ngIf="createGroup.get('description')?.touched && createGroup.get('description')?.invalid">
-                <p class="error">Description must be between 10 and 100 characters!</p>
+                *ngIf="createGroup.get('box')?.touched && createGroup.get('box')?.invalid">
+                <p class="error">Power Supply must be minimum one characters!</p>
             </ng-container>
         </div>
 
-        <div class="bike-box">
+        <div class="pc-box">
             <input formControlName="price" type="text">
             <label>PRICE</label>
             <ng-container *ngIf="createGroup.get('price')?.touched && createGroup.get('price')?.invalid">
@@ -72,7 +72,7 @@
             </ng-container>
         </div>
 
-        <div class="bike-box">
+        <div class="pc-box">
             <input formControlName="img" type="text">
             <label>Img</label>
             <ng-container *ngIf="createGroup.get('img')?.touched && createGroup.get('img')?.invalid">
@@ -83,10 +83,6 @@
             <p *ngIf="errors" class="server-error">{{errors}}</p>
         </div>
         <button [disabled]="createGroup.invalid">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
             Create
         </button>
     </form>

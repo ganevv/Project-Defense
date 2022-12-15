@@ -38,7 +38,7 @@ export class CreateComponent {
     this.pcsService.createPc(pc).subscribe({
       next: (pc) => {
         if (!pc) { return }
-        this.router.navigate(['pcs/catalog'])
+        this.router.navigate(['/pcs/catalog'])
       },
       error: (err) => {
         console.log(err.error)

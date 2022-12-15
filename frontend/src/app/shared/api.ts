@@ -2,8 +2,8 @@ import { IUser } from "./interfaces/user";
 
 export const startSession = ({ _id, username, email, accessToken }: IUser) => {
     const user = { _id, username, email, accessToken }
-    sessionStorage.setItem('User', JSON.stringify(user))
-    localStorage.setItem('User', JSON.stringify(user))
+    sessionStorage.setItem("User", JSON.stringify(user))
+    localStorage.setItem("User", JSON.stringify(user))
 }
 
 export const getSession = () => {

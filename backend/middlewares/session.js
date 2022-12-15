@@ -1,7 +1,7 @@
 const { createSession } = require('../services/user')
 
 module.exports = () => (req, res, next) => {
-    console.log(req.body.email, req.body.username, req.body.password);
+    console.log(req.body.email, req.body.username, req.body.password +  ' create session');
     const token = req.headers['x-authorization']
     if (token) {
         try {
