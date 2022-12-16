@@ -19,9 +19,21 @@ export class PcsService {
   }
 
   createPc(pc: {}) {
-    console.log( getSession().accessToken);
-    
+    console.log(getSession().accessToken);
     return this.http.post(`${apiURL}/pc`, pc, { headers: { 'x-authorization': getSession().accessToken } })
+  }
+
+  loadOnePc(id: string) {
+    return this.http.get<IPc>(`${apiURL}/pc/${id}`)
+  }
+
+  deletePc(id: string) {
+    return this.http.get<IPc>(`${apiURL}/pc/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
+  }
+
+  addPcToCart(id: string) {
+    return this.http.get<IPc>(`${apiURL}/auth/profile`, { headers: { 'x-authorization': getSession().accessToken } })
+    //todo maybe must change route or remove headers!
   }
 
 }

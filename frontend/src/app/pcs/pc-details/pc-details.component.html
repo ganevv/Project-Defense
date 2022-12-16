@@ -1,1 +1,45 @@
-<p>pc-details works!</p>
+<section class=" details">
+    <div class="container">
+
+        <div class="bike-info">
+            <div>
+                <h1 class="header">{{singlePc?.pcName}}</h1>
+                <img class="img" src={{singlePc?.img}}>
+            </div>
+            <div class="bike-details">
+                <h2 class="info">Details</h2>
+                <div class="details">
+                    <p>Name: {{singlePc?.pcName}}</p>
+                    <p>CPU: {{singlePc?.cpu}}</p>
+                    <p>Motherboard: {{singlePc?.motherboard}}</p>
+                    <p>GPU: {{singlePc?.gpu}}</p>
+                    <p>RAM: {{singlePc?.ram}}</p>
+                    <p>Power Supply: {{singlePc?.powerSupply}}</p>
+                    <p>Price: {{singlePc?.price}}</p>
+                    <p>Created By: {{singlePc?._ownerId?.email}}</p>
+                </div>
+                <ng-container *ngIf="isOwner">
+                    <div class="actions-edit">
+                        <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singlePc?._id]">Edit</button>
+                    </div>
+                    <div class="actions-delete">
+                        <button class="btn btn-seconday" (click)="deletePc()">Delete</button>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="hasUser">
+                    <ng-container *ngIf="!isAddedToCart">
+                        <div class="actions-edit">
+                            <button class="btn btn-seconday" (click)="addPcToCart()">Like</button>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="isAddedToCart">
+                        <div class="actions-delete">
+                            <button class="btn btn-seconday">Already liked</button>
+                        </div>
+                    </ng-container>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</section>

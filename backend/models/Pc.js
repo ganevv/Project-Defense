@@ -12,6 +12,7 @@ const pcSchema = new Schema({
     price: { type: Number, required: true, min: [1, 'Price must be over 1 lv.'] },
     img: { type: String, required: true },
     _ownerId: { type: ObjectId, ref: 'User', required: true },
+    addToCart: { type: Array, default: [], required: false }
 })
 
 const Pc = model('Pc', pcSchema)

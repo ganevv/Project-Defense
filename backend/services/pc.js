@@ -41,6 +41,23 @@ async function getMyPcs(id) {
     return await Pc.find({ _ownerId: id })
 }
 
+async function addToCart(pcId, userId) {
+    const existing = await Pc.findById(pcId)
+    existing.addToCart.push(userId)
+    return existing.save()
+}
+
+async function getMyAddedToCart(id) {
+    const pcs = await Pc.find({})
+    let temp = []
+    pcs.map(x => {
+        if (!!(x.likes.includes(id))) {
+            temp.push(x)
+        }
+    })
+    return temp
+}
+
 
 module.exports = {
     getAll,

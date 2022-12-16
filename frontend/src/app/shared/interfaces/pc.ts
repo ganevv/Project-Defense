@@ -11,5 +11,6 @@ export interface IPc {
     powerSupply: string,
     price: number,
     img: string,
-    _ownerId: IUser
+    _ownerId: IUser,
+    addToCart: []
 }
