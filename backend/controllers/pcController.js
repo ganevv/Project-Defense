@@ -8,7 +8,7 @@ pcController.get('/', async (req, res) => {
     // res.status(200).json(await getAll())
 })
 
-pcController.post('/', hasUser(), async (req, res) => {
+pcController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
         res.json(await create(data))

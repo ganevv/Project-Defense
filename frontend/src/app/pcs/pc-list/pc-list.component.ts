@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { IPc } from 'src/app/shared/interfaces/pc';
 import { PcsService } from '../pcs.service';
@@ -15,7 +14,7 @@ export class PcListComponent implements OnInit {
   pcsList: IPc[] | null = null
   hasPcs: boolean = false
 
-  constructor(private pcsService: PcsService, private authService: AuthService, private router: Router) { }
+  constructor(private pcsService: PcsService, private authService: AuthService) { }
 
 
   ngOnInit(): void {
@@ -30,7 +29,6 @@ export class PcListComponent implements OnInit {
       error: (err) => {
         console.log(err)
         this.authService.errorString = err.name
-        this.router.navigate(['/'])
       }
     })
   }

@@ -19,6 +19,8 @@ export class PcsService {
   }
 
   createPc(pc: {}) {
+    console.log( getSession().accessToken);
+    
     return this.http.post(`${apiURL}/pcs`, pc, { headers: { 'x-authorization': getSession().accessToken } })
   }
 

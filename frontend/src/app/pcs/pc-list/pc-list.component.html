@@ -1,5 +1,5 @@
 <h1 *ngIf="!hasPcs">We don't have any PC's right now!!</h1>
 <h1 *ngIf="hasPcs">Our best PC's:</h1>
-<div *ngIf="let pc of pcsList" class="container">
- 
+<div *ngFor="let pc of pcsList" class="container" style="background: url('{{pc.img}}'); background-size:100% 100%">
+    <a [routerLink]="['/pcs/details', pc._id]" class="details">Details</a>
 </div>
