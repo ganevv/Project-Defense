@@ -30,7 +30,6 @@
         <div class="pc-box">
             <input formControlName="ram" type="text">
             <label>RAM</label>
-
             <ng-container *ngIf="createGroup.get('ram')?.touched && createGroup.get('ram')?.invalid">
                 <p class="error">RAM must be minimum one characters!</p>
             </ng-container>
@@ -41,7 +40,6 @@
             <label>STORAGE</label>
             <ng-container *ngIf="createGroup.get('storage')?.touched && createGroup.get('storage')?.invalid">
                 <p class="error">Storage must be minimum one characters!</p>
-
             </ng-container>
         </div>
 
@@ -68,7 +66,6 @@
             <label>PRICE</label>
             <ng-container *ngIf="createGroup.get('price')?.touched && createGroup.get('price')?.invalid">
                 <p class="error">Price must be positive number(0.01)! </p>
-
             </ng-container>
         </div>
 
