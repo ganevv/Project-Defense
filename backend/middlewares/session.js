@@ -1,6 +1,10 @@
 const { verifyToken } = require('../services/user')
 
 module.exports = () => (req, res, next) => {
+    if (req.method == "OPTIONS") {
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end();
+    }
     console.log(req.method);
     console.log(req.body.email, req.body.username, req.body.password + ' create session');
     const token = req.headers['x-authorization']
