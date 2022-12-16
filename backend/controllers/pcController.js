@@ -1,4 +1,3 @@
-const { hasUser } = require('../middlewares/guards')
 const { getAll, create, getById, update, deleteById } = require('../services/pc')
 
 const pcController = require('express').Router()

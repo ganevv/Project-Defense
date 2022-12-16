@@ -1,7 +1,7 @@
 const Pc = require('../models/Pc')
 
 async function getAll() {
-    return Pc.find({})
+    return await Pc.find({})
 }
 
 async function getByUserId(userId) {

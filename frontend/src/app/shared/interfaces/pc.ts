@@ -1,7 +1,7 @@
 import { IUser } from "./user";
 
 export interface IPc {
-    name: string,
+    pcName: string,
     _id: string,
     cpu: string,
     motherboard: string,

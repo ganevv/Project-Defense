@@ -15,13 +15,13 @@ export class PcsService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   loadPcs() {
-    return this.http.get<IPc[]>(`${apiURL}/pcs`)
+    return this.http.get<IPc[]>(`${apiURL}/pc`)
   }
 
   createPc(pc: {}) {
     console.log( getSession().accessToken);
     
-    return this.http.post(`${apiURL}/pcs`, pc, { headers: { 'x-authorization': getSession().accessToken } })
+    return this.http.post(`${apiURL}/pc`, pc, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
 }
