@@ -19,13 +19,13 @@ async function register(email, username, password) {
     })
     console.log(user + 'user');
 
-    const token = createSession(user)
+    const token = createToken(user)
     return token
 
 }
 
 async function login(email, password) {
-    const user = await User.findOne({ email }).collation({ locale: 'en', strength: 2 })
+    const user = await User.findOne({ email }).collation({ locale: 'en' })
 
     if (!user) {
         throw new Error('Incorrect email or password')
@@ -37,11 +37,11 @@ async function login(email, password) {
         throw new Error('Incorrect email or password')
     }
 
-    const token = createSession(user)
+    const token = createToken(user)
     return token
 }
 
-function createSession(user) {
+function createToken(user) {
     const payload = {
         _id: user._id,
         username: user.username,
@@ -67,6 +67,5 @@ function verifyToken(token) {
 module.exports = {
     register,
     login,
-    createSession,
     verifyToken
 }

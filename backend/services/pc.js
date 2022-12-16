@@ -4,17 +4,21 @@ async function getAll() {
     return Pc.find({})
 }
 
-async function getById(id) {
-    return Pc.findById(id)
+async function getByUserId(userId) {
+    return Pc.find({ _ownerId: userId })
 }
 
-async function create(pc) {
-    return Pc.create(pc)
+async function getById(id) {
+    return Pc.findById(id).populate('_ownerId')
+}
+
+async function create(data) {
+    return Pc.create(data)
 }
 
 async function update(id, pc) {
     const existing = await Pc.findById(id)
-    
+
     existing.pcName = pc.pcName
     existing.cpu = pc.cpu
     existing.motherboard = pc.motherboard
@@ -33,11 +37,17 @@ async function deleteById(id) {
     return Pc.findByIdAndDelete(id)
 }
 
+async function getMyPcs(id) {
+    return await Pc.find({ _ownerId: id })
+}
+
 
 module.exports = {
     getAll,
+    getByUserId,
     getById,
     create,
     update,
-    deleteById
+    deleteById,
+    getMyPcs
 }

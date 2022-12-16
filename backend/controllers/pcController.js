@@ -4,8 +4,8 @@ const { getAll, create, getById, update, deleteById } = require('../services/pc'
 const pcController = require('express').Router()
 
 pcController.get('/', async (req, res) => {
-    res.json(await getAll())
-    // res.status(200).json(await getAll())
+    const pcs = await getAll()
+    res.status(200).json(pcs)
 })
 
 pcController.post('/', async (req, res) => {
@@ -14,15 +14,15 @@ pcController.post('/', async (req, res) => {
         res.json(await create(data))
     } catch (err) {
         res.status(400).json({ error: err.message })
-        //todo - maybe must change err.message
     }
+    res.end()
 })
 
 pcController.get('/:id', async (req, res, next) => {
     res.json(await getById(req.params.id))
 })
 
-pcController.put('/:id', hasUser(), async (req, res, next) => {
+pcController.put('/:id', async (req, res, next) => {
     const pc = await getById(req.params.id)
     if (req.user._id != pc._ownerId) {
         return res.status(403).json({ message: 'You cannot modify this Pc' })
@@ -34,7 +34,7 @@ pcController.put('/:id', hasUser(), async (req, res, next) => {
     }
 })
 
-pcController.delete('/:id', hasUser(), async (req, res) => {
+pcController.delete('/:id', async (req, res) => {
     const pc = await getById(req.params.id)
     if (req.user._id != pc._ownerId) {
         return res.status(403).json({ message: 'You cannot modify this Pc' })
