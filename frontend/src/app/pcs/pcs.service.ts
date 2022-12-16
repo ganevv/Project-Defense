@@ -22,17 +22,4 @@ export class PcsService {
     return this.http.post(`${apiURL}/pcs`, pc, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
-  // loadPcs() {
-  //   return this.http.get(`${apiURL}/pcs`)
-  // }
-
-  // loadPcs() {
-  //   return this.http.get(`${apiURL}/pcs`)
-  // }
-
-  // loadPcs() {
-  //   return this.http.get(`${apiURL}/pcs`)
-  // }
-
-
 }

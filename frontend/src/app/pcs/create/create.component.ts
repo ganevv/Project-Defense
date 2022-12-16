@@ -14,6 +14,7 @@ export class CreateComponent {
   URL_PATTERN = /^https?:\/\/.+/i
 
   createGroup: FormGroup = this.formBuilder.group({
+    'pcName': new FormControl('', [Validators.required, Validators.minLength(1)]),
     'cpu': new FormControl('', [Validators.required, Validators.minLength(1)]),
     'motherboard': new FormControl('', [Validators.required, Validators.minLength(1)]),
     'gpu': new FormControl('', [Validators.required, Validators.minLength(1)]),
@@ -28,8 +29,8 @@ export class CreateComponent {
   constructor(private router: Router, private formBuilder: FormBuilder, private pcsService: PcsService) { }
 
   create(): void {
-    const { cpu, motherboard, gpu, ram, storage, powerSupply, box, price, img } = this.createGroup.value
-    const pc = { cpu, motherboard, gpu, ram, storage, powerSupply, box, price, img }
+    const { pcName, cpu, motherboard, gpu, ram, storage, powerSupply, box, price, img } = this.createGroup.value
+    const pc = { pcName, cpu, motherboard, gpu, ram, storage, powerSupply, box, price, img }
 
     this.pcsService.createPc(pc).subscribe({
       next: (pc) => {

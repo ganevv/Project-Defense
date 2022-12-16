@@ -1,6 +1,7 @@
 const { Schema, model, Types: { ObjectId } } = require('mongoose')
 
 const pcSchema = new Schema({
+    pcName: { type: String, required: true },
     cpu: { type: String, required: true },
     motherboard: { type: String, required: true },
     gpu: { type: String, required: true },

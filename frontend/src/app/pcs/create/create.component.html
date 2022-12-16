@@ -3,6 +3,14 @@
     <form [formGroup]="createGroup" (ngSubmit)="create()">
 
         <div class="pc-box">
+            <input formControlName="pcName" type="text">
+            <label>PC Name</label>
+            <ng-container *ngIf="createGroup.get('pcName')?.touched && createGroup.get('pcName')?.invalid">
+                <p class="error">Name must be minimum one characters!</p>
+            </ng-container>
+        </div>
+
+        <div class="pc-box">
             <input formControlName="cpu" type="text">
             <label>CPU</label>
             <ng-container *ngIf="createGroup.get('cpu')?.touched && createGroup.get('cpu')?.invalid">

@@ -14,7 +14,8 @@ async function create(pc) {
 
 async function update(id, pc) {
     const existing = await Pc.findById(id)
-
+    
+    existing.pcName = pc.pcName
     existing.cpu = pc.cpu
     existing.motherboard = pc.motherboard
     existing.gpu = pc.gpu
