@@ -57,11 +57,11 @@ pcController.put('/:id', async (req, res) => {
 // })
 
 pcController.delete('/:id', async (req, res) => {
-    const pc = await getById(req.params.id)
-    if (req.user._id != pc._ownerId) {
-        return res.status(403).json({ message: 'You cannot modify this Pc' })
-    }
     try {
+        const pc = await getById(req.params.id)
+        if (req.user._id != pc._ownerId._id) {
+            res.status(403).json({ err: err.message })
+        }
         await deleteById(req.params.id)
         res.status(204).end()
     } catch (error) {

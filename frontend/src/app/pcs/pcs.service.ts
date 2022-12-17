@@ -32,7 +32,7 @@ export class PcsService {
   }
 
   deletePc(id: string) {
-    return this.http.get<IPc>(`${apiURL}/pc/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
+    return this.http.delete<IPc>(`${apiURL}/pc/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
   addPcToCart(id: string) {
