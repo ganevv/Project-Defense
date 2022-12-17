@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { CreateComponent } from "./create/create.component";
 import { PcDetailsComponent } from "./pc-details/pc-details.component";
 import { PcListComponent } from "./pc-list/pc-list.component";
+import { PcUpdateComponent } from "./pc-update/pc-update.component";
 
 const routes: Routes = [
     {
@@ -19,6 +20,10 @@ const routes: Routes = [
             {
                 path: 'details/:id',
                 component: PcDetailsComponent
+            },
+            {
+                path: 'update/:id',
+                component: PcUpdateComponent
             },
         ]
     }

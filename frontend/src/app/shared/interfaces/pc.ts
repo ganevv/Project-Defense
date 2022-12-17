@@ -9,6 +9,7 @@ export interface IPc {
     ram: string,
     storage: string,
     powerSupply: string,
+    box: string
     price: number,
     img: string,
     _ownerId: IUser,

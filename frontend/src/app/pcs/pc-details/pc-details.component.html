@@ -15,12 +15,14 @@
                     <p>Motherboard: {{singlePc?.motherboard}}</p>
                     <p>GPU: {{singlePc?.gpu}}</p>
                     <p>RAM: {{singlePc?.ram}}</p>
+                    <p>Storage: {{singlePc?.storage}}</p>
                     <p>Power Supply: {{singlePc?.powerSupply}}</p>
+                    <p>Box: {{singlePc?.box}}</p>
                     <p>Price: {{singlePc?.price}} BGN</p>
                 </div>
                 <ng-container *ngIf="isOwner">
-                    <div class="actions-edit">
-                        <button class="btn btn-seconday" [routerLink]="['/pc/edit', singlePc?._id]">Edit</button>
+                    <div class="actions-update">
+                        <button class="btn btn-seconday" [routerLink]="['/pcs/update', singlePc?._id]">Update</button>
                     </div>
                     <div class="actions-delete">
                         <button class="btn btn-seconday" (click)="deletePc()">Delete</button>
@@ -28,7 +30,7 @@
                 </ng-container>
                 <ng-container *ngIf="!isOwner">
                     <ng-container *ngIf="!isAddedToCart">
-                        <div class="actions-edit">
+                        <div class="actions-update">
                             <button class="btn btn-seconday" (click)="addPcToCart()">Buy</button>
                         </div>
                     </ng-container>

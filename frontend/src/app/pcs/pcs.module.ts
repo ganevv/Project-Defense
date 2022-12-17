@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { PcDetailsComponent } from './pc-details/pc-details.component';
+import { PcUpdateComponent } from './pc-update/pc-update.component';
 
 
 
@@ -13,7 +14,8 @@ import { PcDetailsComponent } from './pc-details/pc-details.component';
   declarations: [
     PcListComponent,
     CreateComponent,
-    PcDetailsComponent
+    PcDetailsComponent,
+    PcUpdateComponent
   ],
   imports: [
     CommonModule,
