@@ -1,12 +1,13 @@
-<h1 *ngIf="!hasPcs">We don't have any PC's right now!</h1>
-<h1 *ngIf="hasPcs">Our best PC's:</h1>
-<div *ngFor="let pc of pcsList" class="container" style="background: url('{{pc.img}}'); background-size:100% 100%">
-    <article>
-        <p>{{pc.pcName}}</p>
-        <div class="image">
-            <img src="{{pc.img}}" alt="">
+<h1 class="title" *ngIf="!hasPcs">We don't have any PC's right now!</h1>
+<h1 class="title" *ngIf="hasPcs">Our best PC's:</h1>
+<div class="container">
+    <div *ngFor="let pc of pcsList" class="template" style="background: url('{{pc.img}}'); background-size:100% 100%">
+        <article>
+            <p>{{pc.pcName}}</p>
+            <p>{{pc.price}}</p>
+        </article>
+        <div class="button">
+            <a [routerLink]="['/pcs/details', pc._id]" class="details">Details</a>
         </div>
-        <p>{{pc.price}}</p>
-        <a [routerLink]="['/pcs/details', pc._id]" class="details">Details</a>
-    </article>
+    </div>
 </div>

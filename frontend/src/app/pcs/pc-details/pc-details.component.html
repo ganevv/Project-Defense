@@ -1,45 +1,46 @@
-<section class=" details">
-    <div class="container">
-
-        <div class="bike-info">
-            <div>
-                <h1 class="header">{{singlePc?.pcName}}</h1>
-                <img class="img" src={{singlePc?.img}}>
+<h1 *ngIf="!hasPc">Loading...</h1>
+<ng-container *ngIf="hasPc">
+    <section class="details">
+        <div class="container">
+            <div class="pc-info">
+                <div>
+                    <h1 class="header">{{singlePc?.pcName}}</h1>
+                    <img class="img" src={{singlePc?.img}} alt="pc-image">
             </div>
-            <div class="bike-details">
+            <div class="pc-details">
                 <h2 class="info">Details</h2>
-                <div class="details">
+                <div class="properties">
                     <p>Name: {{singlePc?.pcName}}</p>
                     <p>CPU: {{singlePc?.cpu}}</p>
                     <p>Motherboard: {{singlePc?.motherboard}}</p>
                     <p>GPU: {{singlePc?.gpu}}</p>
                     <p>RAM: {{singlePc?.ram}}</p>
                     <p>Power Supply: {{singlePc?.powerSupply}}</p>
-                    <p>Price: {{singlePc?.price}}</p>
+                    <p>Price: {{singlePc?.price}} BGN</p>
                     <p>Created By: {{singlePc?._ownerId?.email}}</p>
                 </div>
                 <ng-container *ngIf="isOwner">
                     <div class="actions-edit">
-                        <button class="btn btn-seconday" [routerLink]="['/bikes/edit', singlePc?._id]">Edit</button>
+                        <button class="btn btn-seconday" [routerLink]="['/pc/edit', singlePc?._id]">Edit</button>
                     </div>
                     <div class="actions-delete">
                         <button class="btn btn-seconday" (click)="deletePc()">Delete</button>
                     </div>
                 </ng-container>
-                <ng-container *ngIf="hasUser">
+                <ng-container *ngIf="hasUser && !isOwner">
                     <ng-container *ngIf="!isAddedToCart">
                         <div class="actions-edit">
-                            <button class="btn btn-seconday" (click)="addPcToCart()">Like</button>
+                            <button class="btn btn-seconday" (click)="addPcToCart()">Buy</button>
                         </div>
                     </ng-container>
                     <ng-container *ngIf="isAddedToCart">
                         <div class="actions-delete">
-                            <button class="btn btn-seconday">Already liked</button>
+                            <button class="btn btn-seconday">Already bought!</button>
                         </div>
                     </ng-container>
                 </ng-container>
-
             </div>
         </div>
     </div>
 </section>
+</ng-container>

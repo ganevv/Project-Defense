@@ -1,0 +1,43 @@
+h1 {
+    position: relative;
+    color: red;
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.template {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.details {
+    position: relative;
+    font-size: 40px;
+    margin: 40px;
+}
+
+// .details {
+//     position: absolute;
+//     top: -10%;
+//     left: 55px;
+//     color: rgb(6, 0, 0);
+//     margin: 40px;
+//     opacity: 0;
+//     transition: opacity 1s;
+//     display: inline;
+//     display: inline;
+//     font-size: 25px;
+
+// }

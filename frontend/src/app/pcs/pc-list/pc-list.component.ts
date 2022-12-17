@@ -16,7 +16,6 @@ export class PcListComponent implements OnInit {
 
   constructor(private pcsService: PcsService, private authService: AuthService) { }
 
-
   ngOnInit(): void {
     this.pcsService.loadPcs().subscribe({
       next: (pcs) => {
