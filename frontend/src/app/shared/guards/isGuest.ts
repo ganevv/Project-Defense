@@ -10,38 +10,11 @@ import { AuthService } from "src/app/auth/auth.service";
 export class isGuest implements CanActivate {
     constructor(private authService: AuthService, private router: Router, private state: RouterStateSnapshot) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        throw new Error("Method not implemented.");
-    }
-
-    canContoniue(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        return this.ifGuest(state.url) || this.router.createUrlTree(['/'])
-    }
-    //todo CHECK THIS!!!
-
-
-    ifGuest(url: string): boolean {
-        if (url === '/auth/logout' && !this.authService.isLogged) {
-            this.authService.errorString = 'You must login first!'
-            this.router.navigate(['/auth/login'])
-            return false
-        }
-
-        if (url === '/auth/logout' && this.authService.isLogged) {
-            this.authService.errorString = null
-            return true
-        }
-
-        if (this.authService.isLogged) {
-            this.authService.errorString = null
-            return true
-        }
-
         if (!this.authService.isLogged) {
-            this.authService.errorString = 'You must login first!'
-            this.router.navigate(['/auth/login'])
-            return false
+            return true
         }
+        this.authService.errorString = 'You are already logged in!'
+        this.router.navigate(['/'])
         return false
     }
 }
-    //todo CHECK THIS TOOO!!!
