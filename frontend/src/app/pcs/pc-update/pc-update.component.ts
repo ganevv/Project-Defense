@@ -51,11 +51,10 @@ export class PcUpdateComponent implements OnInit {
     this.pcService.updatePc(pc, this.id).subscribe({
       next: (pc) => {
         if (!pc) { return }
-        this.router.navigate([`/auth/profile`])
+        this.router.navigate([`/pcs/details/${this.id}`])
       },
       error: (err) => {
         console.log(err)
-        this.authService.errorString = 'Sorry we can\'t load pc\'s from DataBase'
         this.router.navigate(['/pcs/catalog'])
       }
     })
