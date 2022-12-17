@@ -7,11 +7,12 @@ import { AuthService } from "src/app/auth/auth.service";
     providedIn: 'root'
 })
 
-export class isGuest implements CanActivate {
 
-    constructor(private authService: AuthService, private router: Router, private state: RouterStateSnapshot) { }
+export class IsGuest implements CanActivate {
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    constructor(private authService: AuthService, private router: Router) { }
+
+    canActivate() {
         if (!this.authService.isLogged) {
             return true
         }

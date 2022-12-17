@@ -11,13 +11,12 @@ export class HasUser implements CanActivate {
 
     constructor(private authService: AuthService, private router: Router) { }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    canActivate() {
         if (this.authService.isLogged) {
             return true
         }
-        this.authService.errorString = 'You must login first!'
-        this.router.navigate(['/'])
-        //todo navigate to login
-        return true
+        this.authService.errorString = 'You are not logged in'
+        this.router.navigate(['/auth/login'])
+        return true;
     }
 }

@@ -28,7 +28,7 @@
                         <button class="btn btn-seconday" (click)="deletePc()">Delete</button>
                     </div>
                 </ng-container>
-                <ng-container *ngIf="!isOwner">
+                <ng-container *ngIf="hasUser && !isOwner">
                     <ng-container *ngIf="!isAddedToCart">
                         <div class="actions-update">
                             <button class="btn btn-seconday" (click)="addPcToCart()">Buy</button>
