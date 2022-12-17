@@ -15,22 +15,23 @@ const routes: Routes = [
             {
                 path: 'login',
                 component: LoginComponent,
-                canActivate:[isGuest]
+                canActivate: [isGuest]
             },
             {
                 path: 'register',
                 component: RegisterComponent,
-                canActivate:[isGuest]
+                canActivate: [isGuest]
+
             },
             {
                 path: 'logout',
                 component: LogoutComponent,
-                canActivate:[HasUser]
+                canActivate: [HasUser]
             },
             {
                 path: 'profile',
                 component: ProfileComponent,
-                canActivate:[HasUser]
+                canActivate: [HasUser]
             }
         ]
     }

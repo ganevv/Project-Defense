@@ -15,8 +15,9 @@ export class HasUser implements CanActivate {
         if (this.authService.isLogged) {
             return true
         }
-        this.authService.errorString = 'Ypu must login first!'
-        this.router.navigate(['/auth/login'])
+        this.authService.errorString = 'You must login first!'
+        this.router.navigate(['/'])
+        //todo navigate to login
         return true
     }
 }
