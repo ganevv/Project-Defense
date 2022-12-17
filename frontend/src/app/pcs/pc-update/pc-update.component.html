@@ -3,32 +3,32 @@
     <form [formGroup]="updateGroup" (ngSubmit)="update()">
 
         <div class="pc-box">
-            <input formControlName="pcName" [ngModel]="singlePc?.pcName" type="text">
             <label>PC Name</label>
+            <input formControlName="pcName" [ngModel]="singlePc?.pcName" type="text">
             <ng-container *ngIf="updateGroup.get('pcName')?.touched && updateGroup.get('pcName')?.invalid">
                 <p class="error">Name must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="cpu" [ngModel]="singlePc?.cpu" type="text">
             <label>CPU</label>
+            <input formControlName="cpu" [ngModel]="singlePc?.cpu" type="text">
             <ng-container *ngIf="updateGroup.get('cpu')?.touched && updateGroup.get('cpu')?.invalid">
                 <p class="error">CPU must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="motherboard" [ngModel]="singlePc?.motherboard" type="text">
             <label>MOTHERBOARD</label>
+            <input formControlName="motherboard" [ngModel]="singlePc?.motherboard" type="text">
             <ng-container *ngIf="updateGroup.get('motherboard')?.touched && updateGroup.get('motherboard')?.invalid">
                 <p class="error">Motherboard must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="gpu" [ngModel]="singlePc?.gpu" type="text">
             <label>GPU</label>
+            <input formControlName="gpu" [ngModel]="singlePc?.gpu" type="text">
             <ng-container *ngIf="updateGroup.get('gpu')?.touched && updateGroup.get('gpu')?.invalid">
                 <p class="error">GPU must be minimum one characters!</p>
             </ng-container>
@@ -36,58 +36,54 @@
 
 
         <div class="pc-box">
-            <input formControlName="ram" [ngModel]="singlePc?.ram" type="text">
             <label>RAM</label>
+            <input formControlName="ram" [ngModel]="singlePc?.ram" type="text">
             <ng-container *ngIf="updateGroup.get('ram')?.touched && updateGroup.get('ram')?.invalid">
                 <p class="error">RAM must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="storage" [ngModel]="singlePc?.storage" type="text">
             <label>STORAGE</label>
+            <input formControlName="storage" [ngModel]="singlePc?.storage" type="text">
             <ng-container *ngIf="updateGroup.get('storage')?.touched && updateGroup.get('storage')?.invalid">
                 <p class="error">Storage must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="powerSupply" [ngModel]="singlePc?.powerSupply" type="text">
             <label>POWER SUPPLY</label>
-            <ng-container
-                *ngIf="updateGroup.get('powerSupply')?.touched && updateGroup.get('powerSupply')?.invalid">
+            <input formControlName="powerSupply" [ngModel]="singlePc?.powerSupply" type="text">
+            <ng-container *ngIf="updateGroup.get('powerSupply')?.touched && updateGroup.get('powerSupply')?.invalid">
                 <p class="error">Power Supply must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="box" [ngModel]="singlePc?.box" type="text">
             <label>BOX</label>
-            <ng-container
-                *ngIf="updateGroup.get('box')?.touched && updateGroup.get('box')?.invalid">
+            <input formControlName="box" [ngModel]="singlePc?.box" type="text">
+            <ng-container *ngIf="updateGroup.get('box')?.touched && updateGroup.get('box')?.invalid">
                 <p class="error">Power Supply must be minimum one characters!</p>
             </ng-container>
         </div>
 
         <div class="pc-box">
-            <input formControlName="price" [ngModel]="singlePc?.price" type="text">
             <label>PRICE</label>
+            <input formControlName="price" [ngModel]="singlePc?.price" type="text">
             <ng-container *ngIf="updateGroup.get('price')?.touched && updateGroup.get('price')?.invalid">
                 <p class="error">Price must be positive number(0.01)! </p>
             </ng-container>
         </div>
 
         <div class="pc-box">
+            <label>IMAGE</label>
             <input formControlName="img" [ngModel]="singlePc?.img" type="text">
-            <label>Img</label>
             <ng-container *ngIf="updateGroup.get('img')?.touched && updateGroup.get('img')?.invalid">
                 <p class="error" *ngIf="updateGroup.get('img')?.errors?.['pattern']">Invalid URL, must start with
                     HTTP/HTTPS</p>
-                <p class="error" *ngIf="updateGroup.get('img')?.errors?.['required']">Image is required!</p>
             </ng-container>
+            <p class="error" *ngIf="updateGroup.get('img')?.errors?.['required']">Image is required!</p>
         </div>
-        <button [disabled]="updateGroup.invalid">
-            Update
-        </button>
+        <button [disabled]="updateGroup.invalid">Update</button>
     </form>
 </div>

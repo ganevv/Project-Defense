@@ -4,8 +4,8 @@
 
         <div class="inputs">
             <div class="email">
+                <label>Email</label>
                 <input formControlName="email" type="text" name="email">
-                <label>email</label>
                 <ng-container *ngIf="loginGroup.get('email')?.touched && loginGroup.get('email')?.invalid">
                     <p class="error" *ngIf="loginGroup.get('email')?.errors?.['required']" class="error">Please, insert
                         your email!</p>
@@ -15,16 +15,15 @@
             </div>
 
             <div class="password">
+                <label>Password</label>
                 <input formControlName="password" type="password" name="password">
-                <label>password</label>
                 <ng-container *ngIf="loginGroup.get('password')?.touched  && loginGroup.get('password')?.invalid">
                     <p class="error">Password must be at least 5 characters long!</p>
                 </ng-container>
             </div>
         </div>
-
-        <button [disabled]="loginGroup.invalid">
-            Login
-        </button>
+        <p *ngIf="errors" class="server-error">{{errors}}</p>
+        <button [disabled]="loginGroup.invalid">Login</button>
     </form>
+    <p class="text">Don't have an account? <a routerLink="/auth/register">Register here</a></p>
 </div>

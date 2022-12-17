@@ -7,11 +7,6 @@ pcController.get('/', async (req, res) => {
     res.status(200).json(pcs)
 })
 
-// bikeController.get('/my-bikes', async (req, res) => {
-//     const bikes = await getByUserId(req.user._id);
-//     res.status(200).json(bikes)
-// });
-
 pcController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
@@ -47,15 +42,6 @@ pcController.put('/:id', async (req, res) => {
         res.status(400).json({ error: err.message })
     }
 })
-
-// bikeController.get('/myBikes', async (req, res) => {
-//     try {
-//         const bikes = await getMyBikes(req.user._id)
-//         return res.status(200).json(bikes)
-//     } catch (error) {
-//         res.status(400).json({ error: error.message })
-//     }
-// })
 
 pcController.delete('/:id', async (req, res) => {
     try {
