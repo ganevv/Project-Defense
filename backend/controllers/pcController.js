@@ -1,4 +1,4 @@
-const { getAll, create, getById, update, deleteById } = require('../services/pc')
+const { getAll, create, getById, update, deleteById, addToCart } = require('../services/pc')
 
 const pcController = require('express').Router()
 
@@ -69,25 +69,24 @@ pcController.delete('/:id', async (req, res) => {
     }
 })
 
-// bikeController.get('/like/:id', async (req, res) => {
-//     try {
-//         const bike = await getById(req.params.id)
-//         if (bike._ownerId._id != req.user._id
-//             && bike.likes.map(x => x.includes(req.user?._id) == false)) {
-//             try {
-//                 await likeBike(req.params.id, req.user._id);
-//                 const bike = await getById(req.params.id)
+pcController.get('/profile', async (req, res) => {
+    try {
+        const pc = await getById(req.params.id)
 
-//                 return res.status(200).json(bike)
-//             } catch (error) {
-//                 res.status(400).json({ err: error.message })
-//             }
-//         }
-//     } catch (error) {
-//         res.status(400).json({ err: error.message })
+        if (pc._ownerId._id != req.user._id && pc.addToCart.map(x => x.includes(req.user?._id) == false)) {
+            try {
+                await addToCart(req.params.id, req.user._id);
+                const pc = await getById(req.params.id)
+                return res.status(200).json(pc)
+            } catch (error) {
+                res.status(400).json({ err: error.message })
+            }
+        }
+    } catch (error) {
+        res.status(400).json({ err: error.message })
 
-//     }
-// });
+    }
+});
 
 module.exports = {
     pcController

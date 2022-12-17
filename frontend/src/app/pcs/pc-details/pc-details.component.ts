@@ -20,7 +20,7 @@ export class PcDetailsComponent {
 
   constructor(private pcsService: PcsService, private authService: AuthService, private router: Router, private activateRoute: ActivatedRoute) { }
 
-  getPc(): void {
+  ngOnInit(): void {
     let id = this.activateRoute.snapshot.params['id']
     this.pcsService.loadOnePc(id).subscribe({
       next: (pc) => {

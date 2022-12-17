@@ -17,7 +17,6 @@
                     <p>RAM: {{singlePc?.ram}}</p>
                     <p>Power Supply: {{singlePc?.powerSupply}}</p>
                     <p>Price: {{singlePc?.price}} BGN</p>
-                    <p>Created By: {{singlePc?._ownerId?.email}}</p>
                 </div>
                 <ng-container *ngIf="isOwner">
                     <div class="actions-edit">
@@ -27,7 +26,7 @@
                         <button class="btn btn-seconday" (click)="deletePc()">Delete</button>
                     </div>
                 </ng-container>
-                <ng-container *ngIf="hasUser && !isOwner">
+                <ng-container *ngIf="!isOwner">
                     <ng-container *ngIf="!isAddedToCart">
                         <div class="actions-edit">
                             <button class="btn btn-seconday" (click)="addPcToCart()">Buy</button>

@@ -27,7 +27,7 @@ export class PcListComponent implements OnInit {
       },
       error: (err) => {
         console.log(err)
-        this.authService.errorString = err.name
+        this.authService.errorString = 'Failed to load the PC\'s!'
       }
     })
   }

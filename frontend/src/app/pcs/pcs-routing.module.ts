@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { ProfileComponent } from "../auth/profile/profile.component";
 import { CreateComponent } from "./create/create.component";
 import { PcDetailsComponent } from "./pc-details/pc-details.component";
 import { PcListComponent } from "./pc-list/pc-list.component";
@@ -19,6 +20,19 @@ const routes: Routes = [
             {
                 path: 'details/:id',
                 component: PcDetailsComponent
+            },
+            {
+              path: 'edit/:id',
+            //   component: EditComponent,
+            }
+        ]
+    },
+    {
+        path: 'auth',
+        children: [
+            {
+                path: 'profile',
+                component: ProfileComponent
             }
         ]
     }
