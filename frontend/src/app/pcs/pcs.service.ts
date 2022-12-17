@@ -27,13 +27,20 @@ export class PcsService {
     return this.http.get<IPc>(`${apiURL}/pc/${id}`)
   }
 
+  updatePc(pc: {}, id: string) {
+    return this.http.put(`${apiURL}/pc/${id}`, pc, { headers: { 'x-authorization': getSession().accessToken } })
+  }
+
   deletePc(id: string) {
     return this.http.get<IPc>(`${apiURL}/pc/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
   }
 
   addPcToCart(id: string) {
-    return this.http.get<IPc>(`${apiURL}/auth/profile`, { headers: { 'x-authorization': getSession().accessToken } })
-    //todo maybe must change route or remove headers!
+    return this.http.get<IPc>(`${apiURL}/pc/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
+    //todo maybe must change route
   }
 
+  loadAllFavPcs() {
+    return this.http.get<IPc[]>(`${apiURL}/auth/profile`, { headers: { 'x-authorization': getSession().accessToken } })
+  }
 }
