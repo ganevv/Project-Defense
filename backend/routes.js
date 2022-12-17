@@ -4,7 +4,7 @@ const { pcController } = require('./controllers/pcController')
 const router = require('express').Router()
 
 router.get('/', (req, res) => {
-    res.json({ message: 'REST WORKS!' })
+    res.json({ message: 'Server works!' })
 })
 
 router.use('/auth', authController)

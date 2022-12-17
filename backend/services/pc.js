@@ -66,5 +66,7 @@ module.exports = {
     create,
     update,
     deleteById,
-    getMyPcs
+    getMyPcs,
+    addToCart,
+    getMyAddedToCart
 }

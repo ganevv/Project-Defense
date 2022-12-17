@@ -11,7 +11,6 @@ async function register(email, username, password) {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-
     const user = await User.create({
         username,
         email,
