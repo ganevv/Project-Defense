@@ -36,12 +36,13 @@ pcController.get('/:id', async (req, res) => {
 })
 
 pcController.put('/:id', async (req, res) => {
-    const pc = await getById(req.params.id)
-    if (req.user._id != pc._ownerId) {
-        return res.status(403).json({ message: 'You cannot modify this Pc' })
-    }
     try {
-        res.json(await update(req.params.id, req.body))
+        const pc = await getById(req.params.id)
+        if (req.user._id != pc._ownerId._id) {
+            return res.status(403).json({ message: 'You cannot modify this Pc' })
+        }
+        const result = await update(req.params.id, req.body)
+        res.status(200).json(result)
     } catch (error) {
         res.status(400).json({ error: err.message })
     }
