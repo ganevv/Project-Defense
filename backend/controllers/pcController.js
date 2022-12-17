@@ -70,10 +70,9 @@ pcController.delete('/:id', async (req, res) => {
     }
 })
 
-pcController.get('/profile', async (req, res) => {
+pcController.get('/:id', async (req, res) => {
     try {
         const pc = await getById(req.params.id)
-
         if (pc._ownerId._id != req.user._id && pc.addToCart.map(x => x.includes(req.user?._id) == false)) {
             try {
                 await addToCart(req.params.id, req.user._id);

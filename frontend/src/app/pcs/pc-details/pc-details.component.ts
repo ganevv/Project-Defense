@@ -58,7 +58,7 @@ export class PcDetailsComponent {
 
     this.pcsService.addPcToCart(id!).subscribe({
       next: () => {
-        this.router.navigate(['/auth/profile'])
+        this.isAddedToCart = true
       },
       error: (err) => {
         console.log(err.error)

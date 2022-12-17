@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AuthService } from '../auth/auth.service';
 import { getSession } from '../shared/api';
 import { IPc } from '../shared/interfaces/pc';
 
@@ -12,7 +11,7 @@ const apiURL = environment.apiURL
 })
 export class PcsService {
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   loadPcs() {
     return this.http.get<IPc[]>(`${apiURL}/pc`)
