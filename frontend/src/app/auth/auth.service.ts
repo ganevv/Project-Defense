@@ -19,12 +19,6 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // getUser() {
-  //   return this.http.get<IUser>(`${apiURL}/auth/user`).pipe(tap((userData) => {
-  //   }))
-  // } todo remove maybe!
-
-
   register(userData: {}) {
     return this.http.post<IUser>(`${apiURL}/auth/register`, userData).pipe(tap((response) => {
       if (!response._id) { return }
