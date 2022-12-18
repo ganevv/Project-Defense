@@ -4,7 +4,6 @@
     <div *ngFor="let pc of pcsList" class="template" style="background: url('{{pc.img}}'); background-size:100% 100%">
         <article>
             <p>{{pc.pcName}}</p>
-            <p>{{pc.price}}</p>
         </article>
         <div class="button">
             <a [routerLink]="['/pcs/details', pc._id]" class="details">Details</a>
