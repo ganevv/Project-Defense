@@ -39,7 +39,7 @@ export class CreateComponent {
       },
       error: (err) => {
         console.log(err)
-        this.errors = err.error
+        this.errors = err.error.error
       }
     })
   }

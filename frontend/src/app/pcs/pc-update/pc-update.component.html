@@ -84,6 +84,7 @@
             </ng-container>
             <p class="error" *ngIf="updateGroup.get('img')?.errors?.['required']">Image is required!</p>
         </div>
+        <p *ngIf="errors" class="server-error">{{errors}}</p>
         <button [disabled]="updateGroup.invalid">Update</button>
     </form>
 </div>

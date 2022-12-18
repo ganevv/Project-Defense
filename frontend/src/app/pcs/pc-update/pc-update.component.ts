@@ -12,6 +12,7 @@ import { PcsService } from '../pcs.service';
 })
 export class PcUpdateComponent implements OnInit {
 
+  errors: string | undefined = undefined
   singlePc: IPc | null = null
   URL_PATTERN = /^https?:\/\/.+/i
   id: string = ''
@@ -54,8 +55,7 @@ export class PcUpdateComponent implements OnInit {
         this.router.navigate([`/pcs/details/${this.id}`])
       },
       error: (err) => {
-        console.log(err)
-        this.router.navigate(['/pcs/catalog'])
+        this.errors = err.error.error
       }
     })
   }

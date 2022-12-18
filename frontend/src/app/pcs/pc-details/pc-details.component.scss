@@ -2,8 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 50px;
-    width: 50%;
+    padding-top: 100px;
+}
+
+h1 {
+    font-size: 30px;
+    padding-left: 200px;
+}
+
+.img {
+    max-width: 1000px;
+    max-height: 400px;
+    padding-left: 200px;
+
 }
 
 .pc-details .info {
@@ -75,4 +86,3 @@ button {
     border: 3px solid rgb(255, 255, 255);
     border-radius: 15px;
 }
-
