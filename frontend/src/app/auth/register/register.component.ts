@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { startSession } from 'src/app/shared/api';
-import { passwordMissMatch } from 'src/app/shared/validators/repassValidator';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -19,7 +18,6 @@ export class RegisterComponent {
     email: new FormControl('', [Validators.required, Validators.pattern(this.validationPattern)]),
     username: new FormControl('', [Validators.required, Validators.minLength(5)]),
     password: this.passwordControl,
-    repass: new FormControl('', [passwordMissMatch(this.passwordControl)])
   })
 
   constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
