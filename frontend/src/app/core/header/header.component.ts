@@ -12,6 +12,4 @@ export class HeaderComponent {
 
   constructor(public authService: AuthService, private router: Router) { }
 
-
-  //todo must do loggedin ngif in html
 }

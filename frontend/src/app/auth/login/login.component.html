@@ -1,29 +1,33 @@
-<div class="login">
-    <h2>Login</h2>
-    <form [formGroup]="loginGroup" (ngSubmit)="login()">
+<div class="background-image">
+    <div class="login">
+        <h2>Login</h2>
+        <form [formGroup]="loginGroup" (ngSubmit)="login()">
 
-        <div class="inputs">
-            <div class="email">
-                <label>Email</label>
-                <input formControlName="email" type="text" name="email">
-                <ng-container *ngIf="loginGroup.get('email')?.touched && loginGroup.get('email')?.invalid">
-                    <p class="error" *ngIf="loginGroup.get('email')?.errors?.['required']" class="error">Please, insert
-                        your email!</p>
-                    <p class="error" *ngIf="loginGroup.get('email')?.errors?.['pattern']" class="error">Invalid email!
-                    </p>
-                </ng-container>
-            </div>
+            <div class="inputs">
+                <div class="email">
+                    <label>Email</label>
+                    <input formControlName="email" type="text" name="email">
+                    <ng-container *ngIf="loginGroup.get('email')?.touched && loginGroup.get('email')?.invalid">
+                        <p class="error" *ngIf="loginGroup.get('email')?.errors?.['required']" class="error">Please,
+                            insert
+                            your email!</p>
+                        <p class="error" *ngIf="loginGroup.get('email')?.errors?.['pattern']" class="error">Invalid
+                            email!
+                        </p>
+                    </ng-container>
+                </div>
 
-            <div class="password">
-                <label>Password</label>
-                <input formControlName="password" type="password" name="password">
-                <ng-container *ngIf="loginGroup.get('password')?.touched  && loginGroup.get('password')?.invalid">
-                    <p class="error">Password must be at least 5 characters long!</p>
-                </ng-container>
+                <div class="password">
+                    <label>Password</label>
+                    <input formControlName="password" type="password" name="password">
+                    <ng-container *ngIf="loginGroup.get('password')?.touched  && loginGroup.get('password')?.invalid">
+                        <p class="error">Password must be at least 5 characters long!</p>
+                    </ng-container>
+                </div>
             </div>
-        </div>
-        <p *ngIf="errors" class="server-error">{{errors}}</p>
-        <button [disabled]="loginGroup.invalid">Login</button>
-    </form>
-    <p class="text">Don't have an account? <a routerLink="/auth/register">Register here</a></p>
+            <p *ngIf="errors" class="server-error">{{errors}}</p>
+            <button [disabled]="loginGroup.invalid">Login</button>
+        </form>
+        <p class="text">Don't have an account? <a routerLink="/auth/register">Register here</a></p>
+    </div>
 </div>

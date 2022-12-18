@@ -1,44 +1,46 @@
-<div class="register">
-  <h2>Register</h2>
-  <form [formGroup]="registerGroup" (ngSubmit)="register()">
+<div class="background-image">
+  <div class="register">
+    <h2>Register</h2>
+    <form [formGroup]="registerGroup" (ngSubmit)="register()">
 
-    <div class="inputs">
-      <div class="email">
-        <label>Email</label>
-        <input formControlName="email" type="text" name="email">
-        <ng-container *ngIf="registerGroup.get('email')?.touched && registerGroup.get('email')?.invalid">
-          <p class="error" *ngIf="registerGroup.get('email')?.errors?.['required']" class="error">Please, insert your
-            email! </p>
-          <p class="error" *ngIf="registerGroup.get('email')?.errors?.['pattern']" class="error">Invalid email!</p>
-        </ng-container>
-      </div>
+      <div class="inputs">
+        <div class="email">
+          <label>Email</label>
+          <input formControlName="email" type="text" name="email">
+          <ng-container *ngIf="registerGroup.get('email')?.touched && registerGroup.get('email')?.invalid">
+            <p class="error" *ngIf="registerGroup.get('email')?.errors?.['required']" class="error">Please, insert your
+              email! </p>
+            <p class="error" *ngIf="registerGroup.get('email')?.errors?.['pattern']" class="error">Invalid email!</p>
+          </ng-container>
+        </div>
 
-      <div class="username">
-        <label>Username</label>
-        <input formControlName="username" type="text" name="username">
-        <ng-container *ngIf="registerGroup.get('username')?.touched  && registerGroup.get('username')?.invalid">
-          <p class="error">Username must be at least 5 characters long!</p>
-        </ng-container>
-      </div>
+        <div class="username">
+          <label>Username</label>
+          <input formControlName="username" type="text" name="username">
+          <ng-container *ngIf="registerGroup.get('username')?.touched  && registerGroup.get('username')?.invalid">
+            <p class="error">Username must be at least 5 characters long!</p>
+          </ng-container>
+        </div>
 
-      <div class="password">
-        <label>Password</label>
-        <input formControlName="password" type="password" name="password">
-        <ng-container *ngIf="registerGroup.get('password')?.touched  && registerGroup.get('password')?.invalid">
-          <p class="error">Password must be at least 5 characters long!</p>
-        </ng-container>
-      </div>
+        <div class="password">
+          <label>Password</label>
+          <input formControlName="password" type="password" name="password">
+          <ng-container *ngIf="registerGroup.get('password')?.touched  && registerGroup.get('password')?.invalid">
+            <p class="error">Password must be at least 5 characters long!</p>
+          </ng-container>
+        </div>
 
-      <div class="repass">
-        <label>Repeat Password</label>
-        <input formControlName="repass" type="password" name="repass">
-        <ng-container *ngIf="registerGroup.get('repass')?.touched && registerGroup.get('repass')?.invalid">
-          <p class="error">Password's doesn't match!</p>
-        </ng-container>
+        <div class="repass">
+          <label>Repeat Password</label>
+          <input formControlName="repass" type="password" name="repass">
+          <ng-container *ngIf="registerGroup.get('repass')?.touched && registerGroup.get('repass')?.invalid">
+            <p class="error">Password's doesn't match!</p>
+          </ng-container>
+        </div>
       </div>
-    </div>
-    <p *ngIf="errors" class="server-error">{{errors}}</p>
-    <button [disabled]="registerGroup.invalid">Register</button>
-  </form>
-  <p class="text">Already have an account? <a routerLink="/auth/login">Login here</a></p>
+      <p *ngIf="errors" class="server-error">{{errors}}</p>
+      <button [disabled]="registerGroup.invalid">Register</button>
+    </form>
+    <p class="text">Already have an account? <a routerLink="/auth/login">Login here</a></p>
+  </div>
 </div>

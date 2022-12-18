@@ -40,7 +40,7 @@ export class PcUpdateComponent implements OnInit {
         this.singlePc = pc
       },
       error: (err) => {
-        console.log(err)
+        this.errors = err.error.error
       }
     })
   }

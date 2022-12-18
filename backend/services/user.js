@@ -21,7 +21,6 @@ async function register(email, username, password) {
         email,
         hashedPassword
     })
-    console.log(user + 'user');
 
     const token = createToken(user)
     return token

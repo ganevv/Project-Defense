@@ -44,7 +44,6 @@ export class PcDetailsComponent {
     this.pcsService.deletePc(id!).subscribe({
       next: () => {
         this.router.navigate(['pcs/catalog'])
-        //todo maybe change route
       },
       error: (err) => {
         this.errors = err.error.error

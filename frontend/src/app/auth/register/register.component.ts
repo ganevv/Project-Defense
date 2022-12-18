@@ -20,7 +20,6 @@ export class RegisterComponent {
     username: new FormControl('', [Validators.required, Validators.minLength(5)]),
     password: this.passwordControl,
     repass: new FormControl('', [passwordMissMatch(this.passwordControl)])
-    //todo names change
   })
 
   constructor(private router: Router, private authService: AuthService, private formBuilder: FormBuilder) { }
@@ -28,7 +27,6 @@ export class RegisterComponent {
   errors: string | undefined = undefined
 
   register(): void {
-    //todo maybe add repass!
     const { email, username, password } = this.registerGroup.value
     const body = { email, username, password }
 

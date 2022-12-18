@@ -7,7 +7,6 @@ authController.post('/register', async (req, res) => {
         const token = await register(req.body.email, req.body.username, req.body.password)
         res.status(201).json(token)
         res.end()
-        //todo maybe remove res.end()
     } catch (error) {
         res.status(400).json({ error: error.message })
     }

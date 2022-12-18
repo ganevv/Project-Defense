@@ -35,7 +35,6 @@ export class PcsService {
 
   addPcToCart(id: string) {
     return this.http.get<IPc>(`${apiURL}/pc/${id}`, { headers: { 'x-authorization': getSession().accessToken } })
-    //todo maybe must change route
   }
 
   loadAllFavPcs() {
