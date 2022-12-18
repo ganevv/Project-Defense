@@ -10,6 +10,11 @@ async function register(email, username, password) {
         throw new Error('Email is taken')
     }
 
+    const existingUsername = await User.findOne({ username }).collation({ locale: 'en', strength: 2 })
+    if (existingUsername) {
+        throw new Error('Username is taken')
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10)
     const user = await User.create({
         username,

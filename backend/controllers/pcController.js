@@ -11,8 +11,8 @@ pcController.post('/', async (req, res) => {
     try {
         const data = Object.assign({ _ownerId: req.user._id }, req.body)
         res.json(await create(data))
-    } catch (err) {
-        res.status(400).json({ error: err.message })
+    } catch (error) {
+        res.status(400).json({ error: error.message })
     }
     res.end()
 })
@@ -25,7 +25,7 @@ pcController.get('/:id', async (req, res) => {
         }
         return res.status(200).json(pc)
     } catch (error) {
-        res.status(400).json({ error })
+        res.status(400).json({ error: error.message })
     }
 
 })
@@ -39,7 +39,7 @@ pcController.put('/:id', async (req, res) => {
         const result = await update(req.params.id, req.body)
         res.status(200).json(result)
     } catch (error) {
-        res.status(400).json({ error: err.message })
+        res.status(400).json({ error: error.message })
     }
 })
 
@@ -47,12 +47,12 @@ pcController.delete('/:id', async (req, res) => {
     try {
         const pc = await getById(req.params.id)
         if (req.user._id != pc._ownerId._id) {
-            res.status(403).json({ err: err.message })
+            res.status(403).json({ error: error.message })
         }
         await deleteById(req.params.id)
         res.status(204).end()
     } catch (error) {
-        res.status(400).json({ error: err.message })
+        res.status(400).json({ error: error.message })
     }
 })
 
@@ -65,12 +65,11 @@ pcController.get('/:id', async (req, res) => {
                 const pc = await getById(req.params.id)
                 return res.status(200).json(pc)
             } catch (error) {
-                res.status(400).json({ err: error.message })
+                res.status(400).json({ error: error.message })
             }
         }
     } catch (error) {
-        res.status(400).json({ err: error.message })
-
+        res.status(400).json({ error: error.message })
     }
 });
 

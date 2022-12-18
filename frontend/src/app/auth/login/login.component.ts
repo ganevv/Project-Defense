@@ -37,7 +37,7 @@ export class LoginComponent {
       },
       error: (err) => {
         console.log(err.error)
-        this.errors = err.error
+        this.errors = err.error.error
       }
     })
   }

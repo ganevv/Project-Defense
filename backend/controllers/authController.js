@@ -8,9 +8,9 @@ authController.post('/register', async (req, res) => {
         res.status(201).json(token)
         res.end()
         //todo maybe remove res.end()
-    } catch (err) {
-        console.log(err)
-        res.status(404).json({ err })
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({ error: error.message })
     }
 })
 
@@ -20,9 +20,9 @@ authController.post('/login', async (req, res) => {
         console.log(token.accessToken)
         res.status(201).json(token)
         res.end()
-    } catch (err) {
-        console.log(err)
-        res.status(401).json({ err })
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({ error: error.message })
     }
 })
 
@@ -31,9 +31,9 @@ authController.get('/user', async (req, res) => {
         const user = req.user
         res.status(200).json(user)
         res.end()
-    } catch (err) {
-        console.log(err);
-        res.status(400).json({ err })
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({ error: error.message })
     }
 })
 

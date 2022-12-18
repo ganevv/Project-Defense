@@ -41,9 +41,8 @@ export class RegisterComponent {
         this.router.navigate(['/'])
       },
       error: (err) => {
-        console.log(err);
-
-        this.errors = err.error
+        console.log(err.error);
+        this.errors = err.error.error
       }
     })
   }
