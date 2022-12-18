@@ -19,14 +19,12 @@ export class PcListComponent implements OnInit {
   ngOnInit(): void {
     this.pcsService.loadPcs().subscribe({
       next: (pcs) => {
-        console.log(pcs)
         this.pcsList = pcs
         if (this.pcsList.length > 0) {
           this.hasPcs = true
         }
       },
       error: (err) => {
-        console.log(err)
         this.authService.errorString = 'Failed to load the PC\'s!'
       }
     })

@@ -35,13 +35,11 @@ export class RegisterComponent {
     this.authService.register(body).subscribe({
 
       next: (userData) => {
-        console.log(userData)
         startSession(userData)
         this.authService.setLogin(userData, true)
         this.router.navigate(['/'])
       },
       error: (err) => {
-        console.log(err.error);
         this.errors = err.error.error
       }
     })

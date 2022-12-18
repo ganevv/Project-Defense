@@ -47,8 +47,7 @@ export class PcDetailsComponent {
         //todo maybe change route
       },
       error: (err) => {
-        console.log(err.error)
-        this.errors = err.error
+        this.errors = err.error.error
       }
     })
   }
@@ -61,8 +60,7 @@ export class PcDetailsComponent {
         this.isAddedToCart = true
       },
       error: (err) => {
-        console.log(err.error)
-        this.errors = err.error
+        this.errors = err.error.error
       }
     })
   }

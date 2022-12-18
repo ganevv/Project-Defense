@@ -38,7 +38,6 @@ export class CreateComponent {
         this.router.navigate(['/pcs/catalog'])
       },
       error: (err) => {
-        console.log(err)
         this.errors = err.error.error
       }
     })
