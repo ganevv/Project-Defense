@@ -32,7 +32,7 @@
       <div class="repass">
         <label>Repeat Password</label>
         <input formControlName="repass" type="password" name="repass">
-        <ng-container *ngIf="registerGroup.get('repass')?.touched  && registerGroup.get('repass')?.invalid">
+        <ng-container *ngIf="registerGroup.get('repass')?.touched && registerGroup.get('repass')?.invalid">
           <p class="error">Password's doesn't match!</p>
         </ng-container>
       </div>
@@ -41,5 +41,4 @@
     <button [disabled]="registerGroup.invalid">Register</button>
   </form>
   <p class="text">Already have an account? <a routerLink="/auth/login">Login here</a></p>
-
 </div>
