@@ -1,5 +1,13 @@
 # Project-Defense - PC Generator
 
+PC Generator app made for educational purpose, created with Angular as Front-End, Node.js as Back-End and MongoDB as a database.
+
+- The app's purpose is to create or buy your dream PC.
+- Guest users are able to see only Home Page, Our Offers, Login and Register.
+- Login users can create new PC offers, update and delete them. 
+- They can also buy (add to cart) other offers and add them to their own Profile Page.
+
+
 How to setup:
 
 1. Start the REST API server in your terminal:
